@@ -35,8 +35,8 @@ const req: shared.CreateUserDto = {
   email: "Karley_Stamm@hotmail.com",
   lastName: "Oberbrunner",
   logo: "suscipit",
-  name: "iure",
-  phoneNumber: "magnam",
+  name: "Dr. Valerie Toy",
+  phoneNumber: "suscipit",
 };
 
 sdk.user.userControllerCreateUser(req).then((res: UserControllerCreateUserResponse | AxiosError) => {
