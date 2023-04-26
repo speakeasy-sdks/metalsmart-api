@@ -1,12 +1,9 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  shared.CreateUserDto,
-  UserControllerCreateUserResponse
-} from "metals/dist/sdk/models/operations";
-
 import { AxiosError } from "axios";
 import { SDK } from "metals";
+import { CreateUserDto, UserControllerCreateUserResponse } from "metals/dist/sdk/models/operations";
+
 const sdk = new SDK();
 
 const req: shared.CreateUserDto = {
@@ -21,7 +18,9 @@ const req: shared.CreateUserDto = {
 };
 
 sdk.user.userControllerCreateUser(req).then((res: UserControllerCreateUserResponse | AxiosError) => {
-   // handle response
+  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+    // handle response
+  }
 });
 ```
 <!-- End SDK Example Usage -->

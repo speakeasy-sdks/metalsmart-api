@@ -23,4 +23,6 @@ src/sdk/models/operations/usercontrollergetuser.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/createuserdto.ts
 src/sdk/models/shared/index.ts
+docs/sdk/README.md
+docs/user/README.md
 USAGE.md
