@@ -19,13 +19,12 @@ yarn add https://github.com/speakeasy-sdks/metalsmart-api-speakeasy
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { AxiosError } from "axios";
 import { SDK } from "metals";
-import { CreateUserDto, UserControllerCreateUserResponse } from "metals/dist/sdk/models/operations";
+import { UserControllerCreateUserResponse } from "metals/dist/sdk/models/operations";
 
 const sdk = new SDK();
 
-const req: shared.CreateUserDto = {
+sdk.user.userControllerCreateUser({
   city: "Laruecester",
   companyName: "quibusdam",
   description: "unde",
@@ -34,10 +33,8 @@ const req: shared.CreateUserDto = {
   logo: "suscipit",
   name: "Dr. Valerie Toy",
   phoneNumber: "suscipit",
-};
-
-sdk.user.userControllerCreateUser(req).then((res: UserControllerCreateUserResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: UserControllerCreateUserResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

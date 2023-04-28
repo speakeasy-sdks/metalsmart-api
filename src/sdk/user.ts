@@ -31,7 +31,7 @@ export class User {
     this._genVersion = genVersion;
   }
 
-  userControllerCreateUser(
+  async userControllerCreateUser(
     req: shared.CreateUserDto,
     config?: AxiosRequestConfig
   ): Promise<operations.UserControllerCreateUserResponse> {
@@ -62,7 +62,8 @@ export class User {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -70,27 +71,27 @@ export class User {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UserControllerCreateUserResponse =
-        new operations.UserControllerCreateUserResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 201:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UserControllerCreateUserResponse =
+      new operations.UserControllerCreateUserResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 201:
+        break;
+    }
+
+    return res;
   }
 
-  userControllerGetUser(
+  async userControllerGetUser(
     req: operations.UserControllerGetUserRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.UserControllerGetUserResponse> {
@@ -103,29 +104,30 @@ export class User {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.UserControllerGetUserResponse =
-        new operations.UserControllerGetUserResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.UserControllerGetUserResponse =
+      new operations.UserControllerGetUserResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        break;
+    }
+
+    return res;
   }
 }
