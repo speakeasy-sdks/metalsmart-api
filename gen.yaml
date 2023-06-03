@@ -2,14 +2,14 @@ configVersion: 1.0.0
 management:
   docChecksum: a98ec707ad8cfeb240ca5ffcc6ada0d3
   docVersion: 1.0.0
-  speakeasyVersion: 1.40.3
-  generationVersion: 2.34.7
+  speakeasyVersion: 1.43.0
+  generationVersion: 2.35.3
 generation:
   sdkClassName: SDK
   singleTagPerOp: false
   telemetryEnabled: false
 typescript:
-  version: 1.15.1
+  version: 1.16.0
   author: metalsmart
   maxMethodParams: 0
   packageName: metals
