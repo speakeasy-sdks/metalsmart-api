@@ -2,7 +2,7 @@
 
 ## Overview
 
-The API documentation of Metalsmart
+Metalsmart API: The API documentation of Metalsmart
 
 ### Available Operations
 

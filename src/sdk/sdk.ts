@@ -37,8 +37,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "1.16.0";
-    genVersion = "2.35.3";
+    sdkVersion = "1.16.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -46,7 +46,7 @@ export class SDKConfiguration {
 }
 
 /**
- * The API documentation of Metalsmart
+ * Metalsmart API: The API documentation of Metalsmart
  */
 export class SDK {
     public user: User;
