@@ -45,10 +45,10 @@ sdk.user.userControllerCreateUser({
 ## Available Resources and Operations
 
 
-### [user](docs/user/README.md)
+### [user](docs/sdks/user/README.md)
 
-* [userControllerCreateUser](docs/user/README.md#usercontrollercreateuser)
-* [userControllerGetUser](docs/user/README.md#usercontrollergetuser)
+* [userControllerCreateUser](docs/sdks/user/README.md#usercontrollercreateuser)
+* [userControllerGetUser](docs/sdks/user/README.md#usercontrollergetuser)
 <!-- End SDK Available Operations -->
 
 ### Maturity
